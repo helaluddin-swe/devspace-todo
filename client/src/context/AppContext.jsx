@@ -12,6 +12,7 @@ const AppContextProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [todoItems,setTodoItems]=useState([])
 
     // --- Auth Logic ---
     const logout = useCallback(() => {
@@ -67,6 +68,7 @@ const AppContextProvider = ({ children }) => {
         logout,
         slugify, 
         navigate,
+        todoItems,setTodoItems
     };
 
     // --- Loading UI ---

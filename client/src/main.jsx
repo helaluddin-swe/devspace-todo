@@ -1,23 +1,24 @@
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import AppContextProvider from './context/AppContext.jsx'
-import { BrowserRouter } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
+import App from './App.jsx';
+import AppContextProvider from './context/AppContext.jsx';
+import ThemeContextProvider from './context/ThemeContext.jsx';
 
+import './index.css';
 
-const container=document.getElementById('root')
+const container = document.getElementById('root');
+const root = createRoot(container);
 
-createRoot(container).render(
-  
-  <HelmetProvider> 
-  <BrowserRouter> 
-  <AppContextProvider>
-
-    <App />
-  </AppContextProvider>
-  </BrowserRouter>
-  </HelmetProvider>
-  
-)
+root.render(
+  <ThemeContextProvider>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AppContextProvider>
+          <App />
+        </AppContextProvider>
+      </BrowserRouter>
+    </HelmetProvider>
+  </ThemeContextProvider>
+);

@@ -9,6 +9,7 @@ dotenv.config();
 const connectDB = require("./db/dbConfig");
 
 const authRoutes = require("./routes/authRoutes.js");
+const todoRoutes=require("./routes/todoRoutes.js")
 
 
 const app = express();
@@ -42,6 +43,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api",authRoutes)
+app.use("/api/todos",todoRoutes)
 
 
 
